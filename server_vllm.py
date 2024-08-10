@@ -98,6 +98,11 @@ if __name__ == "__main__":
         default=False,
         help="enable grammar sampling for function names",
     )
+    parser.add_argument(
+        "--served-model-name2",
+         type=str,
+         default=None,
+    )
 
     parser = AsyncEngineArgs.add_cli_args(parser)
     args = parser.parse_args()
@@ -123,8 +128,8 @@ if __name__ == "__main__":
 
     logger.info(f"args: {args}")
 
-    if args.served_model_name is not None:
-        served_model = args.served_model_name
+    if args.served_model_name2 is not None:
+        served_model = args.served_model_name2
     else:
         served_model = args.model
 
